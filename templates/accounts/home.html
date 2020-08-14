@@ -1,0 +1,98 @@
+{% extends 'site_wrapper.html' %}
+{% load static %}
+
+{% block content %}
+{{ request.user }}
+<div class="carousel slide" data-ride="carousel" id="carousel-1" style="max-height: 500px;">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active"><img class="img-fluid w-100 d-block cimage" src="{% static 'img/writingf.jpeg' %}" alt="Slide Image">
+            <div class="carousel-caption d-none d-md-block" style="padding-bottom: 170px;">
+                <h1>Slide One</h1>
+                <p>Awesome paragraph for slide one</p>
+            </div>
+        </div>
+        <div class="carousel-item"><img class="img-fluid w-100 d-block cimage" src="{% static 'img/writinga.jpeg' %}" alt="Slide Image">
+            <div class="carousel-caption d-none d-md-block" style="padding-bottom: 170px;">
+                <h1>Slide Two</h1>
+                <p>Awesome paragraph for slide two</p>
+            </div>
+        </div>
+        <div class="carousel-item"><img class="img-fluid w-100 d-block cimage" src="{% static 'img/writingh.jpeg' %}" alt="Slide Image">
+            <div class="carousel-caption d-none d-md-block" style="padding-bottom: 170px;">
+                <h1>Slide Three</h1>
+                <p>Awesome paragraph for slide three</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a>
+        <!-- End: Previous -->
+        <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
+        <!-- End: Next -->
+    </div>
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-1" data-slide-to="1"></li>
+        <li data-target="#carousel-1" data-slide-to="2"></li>
+    </ol>
+</div>
+<div class="container pt-5">
+    <div class="row">
+        {% include 'tags/aside.html' %}
+        <div class="col-md-8 main" style="font-family: monospace;">
+            <div class="section-heading bg-gray">
+                <h1>Home</h1>
+            </div>
+            <div class="requirements bg-gray">
+                <h3>Requirements</h3>
+                <ul class="requirements-list">
+                    <li>A minimum of a bachelor’s degree (higher academic level writers get access to more complex jobs)<br></li>
+                    <li>Ability to use either of the payment options we support. (Paypal and wire transfer)<br></li>
+                    <li>English language proficiency<br></li>
+                    <li>Internet access<br></li>
+                </ul>
+            </div>
+            <div class="opportunities bg-gray">
+                <h3>What We Offer</h3>
+                <ul class="opportunities-list">
+                    <li>Both full- and part-time earning capacities<br></li>
+                    <li>Flexible work schedule (choose the projects you like)<br></li>
+                    <li>Confidentiality guarantee<br></li>
+                    <li>User-friendly interface<br></li>
+                </ul>
+            </div>
+            <div class="fairplay bg-gray">
+                <h3>Its all about fair play</h3>
+                <p>There is no catch. It’s easy as it is: Researchwritersden.com offers freelance writing jobs. All you have to do to start making money is to apply your expertise from the comfort of your home. Our user-friendly control panel makes job
+                    hunting easy and saves you a lot of time.</p>
+                <p><strong>Making money with us is easy!<br></strong></p>
+                <ul class="fairplay-list">
+                    <li>Fill out the application process<br></li>
+                    <li>Upload a sample of your work and prove that you have at least a bachelor’s degree<br></li>
+                    <li>Take our grammar and formatting styles tests<br></li>
+                    <li>Start your freelance career with&nbsp;eWriters Hub<br></li>
+                </ul>
+            </div>
+            <div class="how bg-gray">
+                <h3>How we work:<br></h3>
+                <ul class="how-list">
+                    <li>After you have been approved to start working, you can log into your account and view available jobs<br></li>
+                    <li>You will have a chance to apply for freelance writing projects in the user control panel whenever you feel like it<br></li>
+                    <li>If you are assigned to the job, you can start working on it. Make sure you submit the completed work before the deadline<br></li>
+                    <li>If you are consistent at delivering high-quality writing, bonuses will not keep themselves waiting<br></li>
+                </ul>
+            </div>
+            <div class="why bg-gray">
+                <h3>Why&nbsp;eWriters Hub?<br></h3>
+                <p>Our terms and conditions are fair, and the price we pay for your work is high. Our user-friendly control panel is designed to ensure maximum ease of communication between the writer and the client.</p>
+                <p>Our business model is different from that of other companies. Our competitors usually take 75% of what the customer pays for the job. We, on the other hand, pursue a pricing policy that is writer-friendly rather than supplier-oriented.
+                    We charge less since we don’t consider ourselves to be a direct supplier of the writing jobs. We are merely an intemediary between you and the client (the customer who provided the job).<br></p>
+                <p>We are always trying to make your dealing with us as pleasant and as convenient as possible. Our standards, nonetheless, are high and we accept only high-quality work.<br></p>
+                <p>eWriters Hub is one of the best freelance writing companies on the web. We are looking forward to helping you put your writing skills to work.<br></p>
+                <p><strong>Join us&nbsp;and start making money today!<br></strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

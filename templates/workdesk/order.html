@@ -1,0 +1,119 @@
+{% extends 'site_wrapper.html' %}
+{% load workdesk_filters %}
+
+{% block content %}
+
+<div class="container pt-3 pb-3">
+    <div class="row bg-gray">
+        <div class="col-3 col-sm-3">
+
+            <div class="links-list">
+                <ul>
+                    <li><h3>Orders</h3></li>
+                    <li><a {% if page_title == 'Dashboard' %}class="active"{% endif %} href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i> Available <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Bids/Applications' %}class="active"{% endif %} href="{% url 'bids' %}"><i class="fa fa-file"></i> Bids/Applications <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Assigned/Confirm' %}class="active"{% endif %} href="{% url 'assigned' %}"><i class="fa fa-check"></i> Assigned/Confirm <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Current' %}class="active"{% endif %} href="{% url 'current' %}"><i class="fa fa-star"></i> Current <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Dispute' %}class="active"{% endif %} href="{% url 'dispute' %}"><i class="fa fa-plug"></i> Dispute <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Revision' %}class="active"{% endif %} href="{% url 'revision' %}"><i class="fa fa-pencil"></i> Revision <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Editing' %}class="active"{% endif %} href="{% url 'editing' %}"><i class="fa fa-edit"></i> Editing <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Completed' %}class="active"{% endif %} href="{% url 'completed' %}"><i class="fa fa-check-circle"></i> Completed <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Approved' %}class="active"{% endif %} href="{% url 'approved' %}"><i class="fa fa-check-square"></i> Approved <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Rejected' %}class="active"{% endif %} href="{% url 'rejected' %}"><i class="fa fa-thumbs-down"></i> Rejected <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Paid' %}class="active"{% endif %} href="{% url 'paid' %}"><i class="fa fa-check-square-o"></i> Paid <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Financial Overview' %}class="active"{% endif %} href="{% url 'financial' %}"><i class="fa fa-money"></i> Financial Overview <span class="count">(0)</span></a></li>
+                    <hr />
+                    <li><a href="#"><i class="fa fa-user"></i> My Profile <span class="count">(0)</span></a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout <span class="count">(0)</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9 col-sm-9 order-content">
+            <h5>Order #{{ order.id }}</h5>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-orders-tab" data-toggle="tab" href="#nav-orders" role="tab" aria-controls="nav-orders" aria-selected="true">Orders</a>
+                    <a class="nav-item nav-link" id="nav-files-tab" data-toggle="tab" href="#nav-files" role="tab" aria-controls="nav-files" aria-selected="false">Files</a>
+                    <a class="nav-item nav-link" id="nav-messages-tab" data-toggle="tab" href="#nav-messages" role="tab" aria-controls="nav-messages" aria-selected="false">Messages</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active orders" id="nav-orders" role="tabpanel" aria-labelledby="nav-orders-tab">
+                    <table class="table table-responsive table-sm">
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ order.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Deadline</th>
+                            <td>{{ order.deadline }}</td>
+                        </tr>
+                        <tr>
+                            <th>Paper format</th>
+                            <td>{{ order.paper_format }}</td>
+                        </tr>
+                        <tr>
+                            <th>Course Level</th>
+                            <td>{{ order.course_level }}</td>
+                        </tr>
+                        <tr>
+                            <th>Subject Area</th>
+                            <td>{{ order.subject_area }}</td>
+                        </tr>
+                        <tr>
+                            <th># Pages</th>
+                            <td>{% if order.pages %}{{ order.pages }} (or 1925 words){% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Spacing</th>
+                            <td>{% if order.pages %}{{ order.spacing }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Cost</th>
+                            <td>USD {{ order.cost }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sources</th>
+                            <td>{% if order.pages %}{{ order.sources }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Paper Details</th>
+                            <td>{{ order.paper_details }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade files" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
+                    <h5>Files</h5>
+                    <table class="table table-responsive table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>File</th>
+                                <th>By</th>
+                                <th>Time</th>
+                                <th>Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in files %}
+                            <tr>
+                                <td><i class="fa fa-circle-o"></i> </td>
+                                <td>{{ file.file_title }} <a href="{{ MEDIA_URL }}{{ file.files }}" download><i class="fa fa-download"></i> </a> </td>
+                                <td>{{ file.project.owner.username }}</td>
+                                <td>{{ file.updated }}</td>
+                                <td>{{ file.files.size|sizify }}</td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade messages" id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

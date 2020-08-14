@@ -1,0 +1,180 @@
+{% extends 'site_wrapper.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- MultiStep Form -->
+<div class="container" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-12 col-md-10 col-lg-10 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Sign Up Your User Account</strong></h2>
+                <p>Fill all form field to go to next step</p>
+                <p class="errorlist">{{ error_message }}</p>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform" action="{% url 'register' %}{% if path %}?next={{ path }}{% endif %}" method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Account</strong></li>
+                                <li id="personal"><strong>Personal</strong></li>
+                                <li id="citations"><strong>Citations</strong></li>
+                                <li id="cv"><strong>CV</strong></li>
+                                <li id="certification"><strong>Certification</strong></li>
+                                <li id="essays"><strong>Essays</strong></li>
+                                <li id="payment"><strong>Payment</strong></li>
+                                <li id="confirm"><strong>Finish</strong></li>
+                            </ul> <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Account Information</h2>
+                                    {{ register_form.email.errors }}
+                                    {{ register_form.email }}
+                                    {{ register_form.username.errors }}
+                                    {{ register_form.username }}
+                                    {{ register_form.password.errors }}
+                                    {{ register_form.password }}
+                                    {{ register_form.password2 }}
+                                </div> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Personal Information</h2>
+                                    {{ register_form.first_name.errors }}
+                                    {{ register_form.first_name }}
+                                    {{ register_form.last_name.errors }}
+                                    {{ register_form.last_name }}
+                                    {{ profile_form.phone.errors }}
+                                    {{ profile_form.phone }}
+                                    {{ profile_form.country.errors }}
+                                    {{ profile_form.country }}
+                                    {{ profile_form.city.errors }}
+                                    {{ profile_form.city }}
+                                    {{ profile_form.zip.errors }}
+                                    {{ profile_form.zip }}
+                                    {{ profile_form.worked.errors }}
+                                    {{ profile_form.worked }}
+                                    <label>Worked for other academic writing companies</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" style="width: auto;" type="radio" name="worked" id="inlineRadio1" value="on">
+                                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" style="width: auto;" type="radio" name="worked" id="inlineRadio2" value="">
+                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                    </div>
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Citations & Disciplines</h2>
+                                    <table class="table table-sm table-borderless">
+                                        <tr>
+                                            {{ profile_form.styles.errors }}
+                                            <th>What Citation Styles are you familiar with<span class="text-danger">*</span></th>
+                                            <td class="academic-data" >
+                                                {% for field in profile_form %}
+                                                    {% if field.label == 'Styles' %}
+                                                        {{ field }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="table table-sm table-borderless">
+                                        <tr>
+                                            {{ profile_form.academic_disciplines.errors }}
+                                            <th>Academic Disciplines</th>
+                                            <td class="academic-data" >
+                                                {% for field in profile_form %}
+                                                    {% if field.label == 'Academic disciplines' %}
+                                                        {{ field }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">CV Details</h2>
+                                    {{ profile_form.native_language.errors }}
+                                    {{ profile_form.native_language }}
+                                    {{ profile_form.academic_level.errors }}
+                                    {{ profile_form.academic_level.label }}<br />
+                                    {{ profile_form.academic_level }}
+                                    {{ profile_form.brief_cv.errors }}
+                                    {{ profile_form.brief_cv }}
+                                    {{ profile_form.detailed_cv.errors }}
+                                    {{ profile_form.detailed_cv.label }}<span> (only <strong>.doc</strong>, <strong>.docx</strong>, <strong>.pdf</strong>)</span>
+                                    {{ profile_form.detailed_cv }}
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Certification and Government ID/Passport</h2>
+                                    {{ profile_form.government_id.errors }}
+                                    {{ profile_form.government_id.label }}<span> (only <strong>.jpg</strong>, <strong>.png</strong>, <strong>.pdf</strong>)</span>
+                                    {{ profile_form.government_id }}
+                                    {{ profile_form.certificate_title.errors }}
+                                    {{ profile_form.certificate_title }}
+                                    {{ profile_form.certificate.errors }}
+                                    {{ profile_form.certificate.label }}<span> (only <strong>.jpg</strong>, <strong>.png</strong>, <strong>.pdf</strong>)</span>
+                                    {{ profile_form.certificate }}
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Sample Essays</h2>
+                                    {{ profile_form.essay1_title.errors }}
+                                    {{ profile_form.essay1_title }}
+                                    {{ profile_form.essay_one.errors }}
+                                    {{ profile_form.essay_one.label }}<span> (only <strong>.doc</strong>, <strong>.docx</strong>, <strong>.pdf</strong>)</span>
+                                    {{ profile_form.essay_one }}
+                                    {{ profile_form.essay2_title.errors }}
+                                    {{ profile_form.essay2_title }}
+                                    {{ profile_form.essay_two.errors }}
+                                    {{ profile_form.essay_two.label }}<span> (only <strong>.doc</strong>, <strong>.docx</strong>, <strong>.pdf</strong>)</span>
+                                    {{ profile_form.essay_two }}
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Payment Information</h2>
+                                    <h5>Make sure you had entered the right email or phone number depending on your payment method</h5>
+                                    {{ profile_form.payment_method.errors }}
+                                    {{ profile_form.payment_method.label }}
+                                    {{ profile_form.payment_method }}
+                                    <div class="col-7">
+
+                                    </div>
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Submit !</h2> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                    </div> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            {{ profile_form.terms.errors }}
+                                            <h5>{{ profile_form.terms }} I agree to eWriters Hub terms and conditions</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="submit" name="submit" class="submit" value="Submit" disabled="" />
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /MultiStep Form -->
+
+{% endblock %}

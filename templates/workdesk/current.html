@@ -1,0 +1,92 @@
+{% extends 'site_wrapper.html' %}
+
+{% block content %}
+
+<div class="container pt-3 pb-3">
+    <div class="row bg-gray">
+        <div class="col-3 col-sm-3">
+
+            <div class="links-list">
+                <ul>
+                    <li><h3>Orders</h3></li>
+                    <li><a {% if page_title == 'Dashboard' %}class="active"{% endif %} href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i> Available <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Bids/Applications' %}class="active"{% endif %} href="{% url 'bids' %}"><i class="fa fa-file"></i> Bids/Applications <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Assigned/Confirm' %}class="active"{% endif %} href="{% url 'assigned' %}"><i class="fa fa-check"></i> Assigned/Confirm <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Current' %}class="active"{% endif %} href="{% url 'current' %}"><i class="fa fa-star"></i> Current <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Dispute' %}class="active"{% endif %} href="{% url 'dispute' %}"><i class="fa fa-plug"></i> Dispute <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Revision' %}class="active"{% endif %} href="{% url 'revision' %}"><i class="fa fa-pencil"></i> Revision <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Editing' %}class="active"{% endif %} href="{% url 'editing' %}"><i class="fa fa-edit"></i> Editing <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Completed' %}class="active"{% endif %} href="{% url 'completed' %}"><i class="fa fa-check-circle"></i> Completed <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Approved' %}class="active"{% endif %} href="{% url 'approved' %}"><i class="fa fa-check-square"></i> Approved <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Rejected' %}class="active"{% endif %} href="{% url 'rejected' %}"><i class="fa fa-thumbs-down"></i> Rejected <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Paid' %}class="active"{% endif %} href="{% url 'paid' %}"><i class="fa fa-check-square-o"></i> Paid <span class="count">(0)</span></a></li>
+                    <li><a {% if page_title == 'Financial Overview' %}class="active"{% endif %} href="{% url 'financial' %}"><i class="fa fa-money"></i> Financial Overview <span class="count">(0)</span></a></li>
+                    <hr />
+                    <li><a href="#"><i class="fa fa-user"></i> My Profile <span class="count">(0)</span></a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout <span class="count">(0)</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9 col-sm-9">
+            <div class="orders">
+                <h5>My Assigned Orders</h5>
+                <div class="row">
+                <div class="col-6">
+                    Show
+                    <select>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                    </select>
+                    entries
+                </div>
+                <div class="col-6">
+                    <form class="order-search"><input type="text" name="order_q"></form>
+                </div>
+                </div>
+                <table class="table table-responsive table-sm">
+                    <thead>
+                        <tr>
+                            <th>Order No.</th>
+                            <th>Title</th>
+                            <th>Subject Area</th>
+                            <th>Academic Level</th>
+                            <th>Deadline</th>
+                            <th>Pages</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>The Effects of covid 19</td>
+                            <td>Social Health Care</td>
+                            <td>Bachelor</td>
+                            <td>2 days</td>
+                            <td>30</td>
+                            <td>Kes 5000</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="text-center">No Data Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paginator">
+                <div class="row">
+                    <div class="col-6">
+                        Showing 0 to 0 of O entries
+                    </div>
+                    <div class="col-6">
+                        <span class="paginator-links">
+                            <a href="#"><button class="btn btn-dark btn-sm">First</button></a> <a href="#"> <button class="btn btn-dark btn-sm">Previous</button></a> <a href="#"> <button class="btn btn-dark btn-sm">Next</button></a> <a href="#"> <button class="btn btn-dark btn-sm">Last</button></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

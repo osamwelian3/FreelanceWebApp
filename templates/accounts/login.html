@@ -1,0 +1,23 @@
+{% extends 'site_wrapper.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="loginfrm">
+                <form id="msform" action="{% url 'login' %}{% if path %}?next={{ path }}{% endif %}" method="post">
+                    <h1><i class="fa fa-user-o"></i> Log In</h1>
+                    <p class="errorlist">{{ user_error }}</p>
+                    {% csrf_token %}
+                    <input class="input" id="id_username" name="username" type="text" placeholder="Username/Email"><br>
+                    <input class="input" id="id_password" name="password" type="password" placeholder="Password">
+                    <input type="submit" class="btn btn-success" value="Log In">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

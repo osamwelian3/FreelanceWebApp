@@ -1,0 +1,375 @@
+div.title {
+  margin: auto;
+  text-align: center;
+}
+
+h3.title {
+  margin: auto;
+  text-align: center;
+}
+
+.img-fluid.w-100.d-block.cimage {
+  width: 100%;
+  height: 500px!important;
+}
+
+div.main > div {
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.bg-gray {
+  background-color: rgb(169,169,169)!important;
+}
+
+.apply-ad {
+    background-image: url(../img/writinga.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(0px);
+}
+
+/* multi-step register form */
+
+
+
+/*#grad1 {
+    background-color: #9C27B0;
+    background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+}*/
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+
+#msform fieldset .form-card {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform fieldset .form-card {
+    text-align: left;
+    color: #9E9E9E
+}
+
+#msform input,
+#msform textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 16px;
+    letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid skyblue;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: 100px;
+    background: skyblue;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid skyblue
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #000000
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 25%;
+    float: left;
+    position: relative
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f023"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #citations:before {
+    font-family: FontAwesome;
+    content: "\f02d"
+}
+
+#progressbar #cv:before {
+    font-family: FontAwesome;
+    content: "\f016"
+}
+
+#progressbar #certification:before {
+    font-family: FontAwesome;
+    content: "\f27e"
+}
+
+#progressbar #essays:before {
+    font-family: FontAwesome;
+    content: "\f0f6"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f09d"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: skyblue
+}
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    width: 204;
+    height: 104;
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 8px 2px
+}
+
+.radio:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+/* multi-step register form end */
+
+.academic-list {
+    display: inline;
+    list-style: none;
+    padding: 0px;
+}
+
+.academic-list > li {
+    display: inline;
+    width: 5px;
+}
+
+.academic-data {
+    columns: 3;
+}
+
+input.academic-list {
+    margin: 0px!important;
+    width: 35px!important;
+}
+
+.errorlist {
+    list-style: none;
+    display: block;
+    float: left;
+    background: red;
+}
+.errorlist > li {
+    list-style: none;
+    display: block;
+    float: left;
+    background: red;
+}
+
+.message {
+    background: aliceblue;
+    border: 1px solid gray;
+    border-radius: 10px 10px 10px 10px;
+}
+
+form.order-search {
+    float: right;
+}
+
+span.paginator-links {
+    float: right;
+}
+
+.links-list > ul {
+    list-style: none;
+    border: 1px solid aliceblue;
+    border-radius: 30px 0px 0px 30px;
+    padding: 5px;
+}
+
+.links-list > ul > li > a {
+    text-decoration: none;
+    color: black;
+}
+
+.links-list > ul > li > a.active {
+    pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+    div.col-3, div.col-9 {
+        overflow: scroll;
+        word-wrap:break-word;
+    }
+    *{
+        font-size: 9px;
+    }
+    .footer-basic .social > a > i, .footer-basic .social > a {
+        font-size: 24px;
+    }
+    div.col-3 {
+        overflow: scroll;
+        width: 40%!important;
+        padding-inline-start: 0px;
+        padding: 0px;
+        overflow: scroll;
+        word-wrap:break-word;
+    }
+}
+
+.order-content a {
+    color: black;
+}
+
